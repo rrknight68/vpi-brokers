@@ -1,6 +1,8 @@
 {
   "outputDirectory": ".",
   "rewrites": [
-    { "source": "/1031", "destination": "/1031.html" }
+    { "source": "/1031", "destination": "/1031.html" },
+    { "source": "/lifestyle", "destination": "/lifestyle.html" },
+    { "source": "/units", "destination": "/units.html" }
   ]
 }
