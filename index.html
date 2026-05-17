@@ -23,7 +23,7 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { background:#F9F7F3; font-family:'Jost',sans-serif; -webkit-font-smoothing:antialiased; color:var(--navy); }
-img { display:block; max-width:100%; }
+img { display:block; max-width:100%; height:auto; }
 @page { size: A4; margin: 0.5in; }
 
 .doc {
@@ -265,8 +265,68 @@ img { display:block; max-width:100%; }
   color: rgba(249,247,243,0.6);
   margin-top: 8px; line-height: 1.45;
 }
-@media (max-width: 620px) {
-  .vpi-contact-row { grid-template-columns: 1fr; gap: 18px; }
+/* ── Mobile layout (≤768px) ─────────────────────────── */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  .doc { margin: 0; max-width: 100%; box-shadow: none; }
+
+  .framing { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
+  .framing-text-en { font-size: 12px; }
+
+  .hero { height: auto; min-height: 70vh; }
+  .hero-inner { padding: 24px 16px 28px; }
+  .hero-top { position: static; }
+  .hero-commission-badge {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    margin: 0 0 16px !important;
+    padding: 12px 14px !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .hero-eyebrow { font-size: 11px; margin-bottom: 10px; }
+  .hero-title { font-size: 32px; line-height: 1.1; max-width: 100%; }
+  .hero-sub { font-size: 16px; margin-top: 10px; max-width: 100%; }
+
+  .section { padding: 32px 16px; }
+  .eyebrow { font-size: 10px; }
+  .title { font-size: 26px; line-height: 1.15; }
+  .body-en, .closing-text-en { font-size: 16px; max-width: 100%; }
+  .pullquote { font-size: 19px; max-width: 100%; }
+
+  .swfl-stack { gap: 1.25rem; margin-bottom: 24px; }
+  .swfl-stack .fullbleed { aspect-ratio: auto; }
+  .swfl-stack .fullbleed img { max-height: none; }
+
+  .img-grid, .spa-stack, .moats-brief {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .img-card .img-head { font-size: 18px; }
+  .img-card .img-desc { font-size: 14px; }
+
+  .intro-cta-btn {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .intro-cta-lead-en { font-size: 15px; max-width: 100%; }
+
+  .vpi-contact-row { grid-template-columns: 1fr; gap: 24px; }
+  .vpi-contact-card { grid-template-columns: 72px 1fr; gap: 14px; }
+  .vpi-contact-headshot { width: 72px; height: 72px; }
+  .vpi-contact-name { font-size: 18px; }
+
+  .footer { padding: 16px; font-size: 10px; }
+
+  .print-btn { display: none !important; }
 }
 
 /* ── Footer ─────────────────────────────────────────── */
@@ -405,7 +465,7 @@ img { display:block; max-width:100%; }
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <div class="hero-top">
-        <div style="text-align:right; font-family:'Cinzel',serif; font-size:13px; font-weight:600; letter-spacing:0.05em; color:#ffffff; line-height:1.7; position:absolute; top:24px; right:32px; background:rgba(13,43,78,0.72); padding:14px 20px; border-radius:4px; border-left:2px solid #C89A3A; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);">
+        <div class="hero-commission-badge" style="text-align:right; font-family:'Cinzel',serif; font-size:13px; font-weight:600; letter-spacing:0.05em; color:#ffffff; line-height:1.7; position:absolute; top:24px; right:32px; background:rgba(13,43,78,0.72); padding:14px 20px; border-radius:4px; border-left:2px solid #C89A3A; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);">
           <span style="color:var(--gold); font-weight:700; font-size:15px;">3.0% COOPERATING COMMISSION</span><br/>
           50% AT CONTRACT EXECUTION · 50% AT COMPLETION<br/>
           DEBORAH KNIGHT · (239) 464-6887
@@ -413,8 +473,8 @@ img { display:block; max-width:100%; }
       </div>
       <div class="hero-spacer"></div>
       <div class="hero-eyebrow">Cooperating Broker Program</div>
-      <h1 class="hero-title">Your buyer. Our property. You earn <em>3%</em>.</h1>
-      <p class="hero-sub">Lake Shadroe Resort &amp; Marina pays 3.0% cooperating commission — above the SW Florida market standard. Register your buyer with Deborah before the introduction and your commission is protected from the first conversation.</p>
+      <h1 class="hero-title">Panoramic waterfront views from $1M.</h1>
+      <p class="hero-sub">3% cooperating commission.</p>
     </div>
   </header>
 
@@ -428,7 +488,24 @@ img { display:block; max-width:100%; }
     </div>
   </section>
 
+  <!-- ── Two moats brief (elevated above the property descriptions) ─── -->
   <section class="section" style="padding-top: calc(0.7in + 3rem);">
+    <div class="eyebrow">Built differently</div>
+    <div class="moats-brief">
+      <div class="moat-mini">
+        <div class="moat-tag">Moat one</div>
+        <div class="moat-head">No flood insurance required.</div>
+        <div class="moat-en">We engineered the site out of the flood zone entirely. Most Florida waterfront condos carry significant mandatory flood insurance. Lake Shadroe units do not.</div>
+      </div>
+      <div class="moat-mini">
+        <div class="moat-tag">Moat two</div>
+        <div class="moat-head">Your right to rent runs with the land.</div>
+        <div class="moat-en">Commercial condo-hotel zoning. Short-term rental is the primary intended use — not a privilege granted by an HOA. No HOA vote can touch it. Ever.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="eyebrow">Southwest Florida</div>
     <h2 class="title">More waterfront than Miami, <em>still undiscovered</em>.</h2>
     <p class="body-en">Four hundred miles of navigable canals. White sand barrier islands minutes by boat. The Gulf of Mexico at your doorstep. Cape Coral sits inside the Gulf Coast triangle that Latin American and European families have chosen for three generations — discreet, low-traffic, within an hour of Naples and a short flight from Miami.</p>
@@ -587,23 +664,6 @@ img { display:block; max-width:100%; }
           <div class="img-head">A spa, not a clinic.</div>
           <div class="img-desc">IV therapy, NAD+, physician-supervised wellness — delivered in the aesthetic of a spa.</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Two moats brief ──────────────────────────────── -->
-  <section class="section">
-    <div class="eyebrow">Built differently</div>
-    <div class="moats-brief">
-      <div class="moat-mini">
-        <div class="moat-tag">Moat one</div>
-        <div class="moat-head">No flood insurance required.</div>
-        <div class="moat-en">We engineered the site out of the flood zone entirely. Most Florida waterfront condos carry significant mandatory flood insurance. Lake Shadroe units do not.</div>
-      </div>
-      <div class="moat-mini">
-        <div class="moat-tag">Moat two</div>
-        <div class="moat-head">Your right to rent runs with the land.</div>
-        <div class="moat-en">Commercial condo-hotel zoning. Short-term rental is the primary intended use — not a privilege granted by an HOA. No HOA vote can touch it. Ever.</div>
       </div>
     </div>
   </section>
