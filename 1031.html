@@ -23,7 +23,7 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { background:#F9F7F3; font-family:'Jost',sans-serif; -webkit-font-smoothing:antialiased; color:var(--navy); }
-img { display:block; max-width:100%; }
+img { display:block; max-width:100%; height:auto; }
 @page { size: A4; margin: 0.5in; }
 
 .doc {
@@ -337,17 +337,66 @@ img { display:block; max-width:100%; }
 .footer .strong { color: var(--navy); font-weight: 500; }
 
 /* ── Responsive ─────────────────────────────────────── */
-@media (max-width: 760px) {
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  .doc { margin: 0; max-width: 100%; box-shadow: none; }
+
+  .framing { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
+  .framing-text-en { font-size: 12px; }
+  .framing-text-es { font-size: 11px; }
+
+  .hero { height: auto; min-height: 60vh; }
+  .hero-inner { padding: 24px 16px 28px; }
+  .hero-top { position: static; flex-direction: column; gap: 16px; }
+  .hero-tag {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    margin: 0 0 16px !important;
+    padding: 10px 14px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .hero-eyebrow { font-size: 11px; margin-bottom: 10px; }
+  .hero-title { font-size: 32px; line-height: 1.1; max-width: 100%; }
+  .hero-sub { font-size: 16px; margin-top: 10px; max-width: 100%; }
+
+  .section { padding: 32px 16px; }
+  .eyebrow { font-size: 12px; }
+  .title { font-size: 26px; line-height: 1.15; }
+  .body-en, .closing-text-en { font-size: 16px; max-width: 100%; }
+
   .comp-grid,
   .fits-grid,
-  .moats-brief { grid-template-columns: 1fr; }
-  .vpi-contact-row { grid-template-columns: 1fr; gap: 18px; }
-  .hero { height: 5in; }
-  .hero-title { font-size: 38px; }
-  .hero-tag { display: none; }
-  .section { padding: 36px 28px; }
-  .framing { padding: 14px 28px; flex-wrap: wrap; gap: 12px; }
-  .footer { padding: 18px 28px 22px; }
+  .moats-brief { grid-template-columns: 1fr; gap: 16px; }
+
+  .comp-card { padding: 18px 18px 16px; }
+  .comp-card .comp-pct { font-size: 52px; }
+  .comp-card .comp-headline { font-size: 15px; }
+  .comp-card .comp-body { font-size: 14px; }
+
+  .fit-card { padding: 14px 16px; }
+  .fit-head { font-size: 16px; }
+  .fit-body { font-size: 14px; }
+
+  .moat-mini .moat-head { font-size: 16px; }
+  .moat-mini .moat-en { font-size: 14px; }
+
+  .step-flow { padding: 14px 16px; }
+  .step-flow ol { font-size: 14px; }
+  .lp-bullets li { font-size: 14px; }
+
+  .vpi-contact-row { grid-template-columns: 1fr; gap: 24px; }
+  .vpi-contact-card { grid-template-columns: 72px 1fr; gap: 14px; }
+  .vpi-contact-headshot,
+  .vpi-contact-seal { width: 72px; height: 72px; }
+  .vpi-contact-seal { font-size: 18px; }
+  .vpi-contact-name { font-size: 17px; }
+
+  .footer { padding: 16px; font-size: 10px; }
+
+  .print-btn { display: none !important; }
 }
 
 /* ── Print / PDF ────────────────────────────────────── */
@@ -573,7 +622,7 @@ img { display:block; max-width:100%; }
         <!-- Rob — email only -->
         <div class="vpi-contact-card">
           <img class="vpi-contact-headshot"
-               src="/lake-shadroe/images/people/rob-knight-headshot.jpg"
+               src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/people/rob-knight-headshot.jpg"
                alt="Rob Knight, Founder &amp; Managing Principal, Vantage Point Investments" />
           <div>
             <div class="vpi-contact-name">Rob Knight</div>
@@ -581,7 +630,7 @@ img { display:block; max-width:100%; }
             <div class="vpi-contact-lines">
               <a href="mailto:rob@vpiflorida.com">rob@vpiflorida.com</a><br/>
               FL Licensed Real Estate Salesperson SL3481954<br/>
-              Realty One Group MVP
+              <img src="images/rog-logo-full.png" alt="Realty One Group MVP" style="display:block; width:120px; height:auto; margin-bottom:4px; opacity:0.9;">
             </div>
           </div>
         </div>
@@ -589,7 +638,7 @@ img { display:block; max-width:100%; }
         <!-- Deborah — phone only -->
         <div class="vpi-contact-card">
           <img class="vpi-contact-headshot"
-               src="/lake-shadroe/images/people/deborah-knight-headshot.jpg"
+               src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/people/deborah-knight-headshot.jpg"
                alt="Deborah Knight, Co-Founder, Vantage Point Investments" />
           <div>
             <div class="vpi-contact-name">Deborah Knight</div>
@@ -597,7 +646,7 @@ img { display:block; max-width:100%; }
             <div class="vpi-contact-lines">
               <a href="tel:+12394646887">(239) 464-6887 mobile</a><br/>
               FL Licensed Real Estate Salesperson SL3332353<br/>
-              Realty One Group MVP
+              <img src="images/rog-logo-full.png" alt="Realty One Group MVP" style="display:block; width:120px; height:auto; margin-bottom:4px; opacity:0.9;">
             </div>
             <div class="vpi-contact-note">Deborah handles all initial inquiries and client follow-up.</div>
           </div>
@@ -606,7 +655,7 @@ img { display:block; max-width:100%; }
         <!-- Nick — legal counsel -->
         <div class="vpi-contact-card">
           <img class="vpi-contact-headshot"
-               src="/lake-shadroe/images/people/nick-moore-headshot.jpg"
+               src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/people/nick-moore-headshot.jpg"
                alt="Nick Moore, Esq., 1031 Exchange Counsel, Robinson Franzman LLP" />
           <div>
             <div class="vpi-contact-name">Nick Moore, Esq.</div>
