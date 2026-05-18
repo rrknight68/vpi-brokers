@@ -23,7 +23,7 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { background:#F9F7F3; font-family:'Jost',sans-serif; -webkit-font-smoothing:antialiased; color:var(--navy); }
-img { display:block; max-width:100%; }
+img { display:block; max-width:100%; height:auto; }
 @page { size: A4; margin: 0.5in; }
 
 .doc {
@@ -394,8 +394,75 @@ img { display:block; max-width:100%; }
   color: var(--gold-light); text-decoration: none;
   border-bottom: 1px dotted rgba(200,154,58,0.35);
 }
-@media (max-width: 620px) {
-  .vpi-contact-row { grid-template-columns: 1fr; gap: 18px; }
+/* ── Mobile layout (≤768px) ─────────────────────────── */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  .doc { margin: 0; max-width: 100%; box-shadow: none; }
+
+  .framing { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
+  .framing-text-en { font-size: 12px; }
+  .framing-text-es { font-size: 11px; }
+
+  .hero { height: auto; min-height: 60vh; }
+  .hero-commission-badge { white-space: normal !important; }
+  .hero-inner { padding: 24px 16px 28px; }
+  .hero-top { position: static; flex-direction: column; gap: 16px; }
+  .hero-commission-badge {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    margin: 0 0 16px !important;
+    padding: 12px 14px !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .hero-eyebrow { font-size: 11px; margin-bottom: 10px; }
+  .hero-title { font-size: 32px; line-height: 1.1; max-width: 100%; }
+  .hero-sub { font-size: 16px; margin-top: 10px; max-width: 100%; }
+
+  .section { padding: 32px 16px; }
+  .eyebrow { font-size: 12px; }
+  .title { font-size: 26px; line-height: 1.15; }
+  .body-en, .closing-text-en { font-size: 16px; max-width: 100%; }
+  .body-es, .closing-text-es { font-size: 13.5px; max-width: 100%; }
+  .pullquote { font-size: 19px; max-width: 100%; }
+
+  .swfl-stack { gap: 1.25rem; margin-bottom: 24px; }
+  .swfl-stack .fullbleed { aspect-ratio: auto; }
+  .swfl-stack .fullbleed img { max-height: none; }
+
+  .img-grid, .spa-stack, .moats-brief {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .img-card .img-head { font-size: 18px; }
+  .img-card .img-desc { font-size: 14px; }
+  .img-card .img-desc-es { font-size: 12.5px; }
+
+  .intro-cta-btn {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .intro-cta-lead-en { font-size: 15px; max-width: 100%; }
+  .intro-cta-lead-es { font-size: 13px; max-width: 100%; }
+
+  .vpi-contact-row { grid-template-columns: 1fr; gap: 24px; }
+  .vpi-contact-card { grid-template-columns: 72px 1fr; gap: 14px; }
+  .vpi-contact-headshot { width: 72px; height: 72px; }
+  .vpi-contact-name { font-size: 18px; }
+
+  .closing-grid { grid-template-columns: 1fr; gap: 18px; }
+
+  .footer { padding: 16px; font-size: 10px; }
+
+  .print-btn { display: none !important; }
 }
 
 /* ── Footer ─────────────────────────────────────────── */
@@ -567,7 +634,7 @@ img { display:block; max-width:100%; }
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <div class="hero-top">
-        <div style="text-align:right; font-family:'Cinzel',serif; font-size:15px; font-weight:600; letter-spacing:0.05em; color:#ffffff; line-height:1.7; position:absolute; top:24px; right:32px; background:rgba(13,43,78,0.72); padding:14px 20px; border-radius:4px; border-left:2px solid #C89A3A; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);">
+        <div class="hero-commission-badge" style="text-align:right; font-family:'Cinzel',serif; font-size:15px; font-weight:600; letter-spacing:0.05em; color:#ffffff; line-height:1.7; position:absolute; top:24px; right:32px; background:rgba(13,43,78,0.72); padding:14px 20px; border-radius:4px; border-left:2px solid #C89A3A; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);">
           CAPE CORAL · FLORIDA<br/>
           MATLACHA PASS · GULF ACCESS<br/>
           <span style="color:var(--gold); font-weight:700; font-size:17px;">FROM $1,040,625</span>
@@ -612,7 +679,7 @@ img { display:block; max-width:100%; }
     <div class="img-grid" style="margin-top: 24px;">
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-02.jpeg" alt="Full resort aerial" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-02.jpeg" alt="Full resort aerial" />
         </div>
         <div class="img-meta">
           <div class="img-tag">The campus</div>
@@ -623,7 +690,7 @@ img { display:block; max-width:100%; }
       </div>
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-04.jpeg" alt="Gazebo and hot tub at sunset" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-04.jpeg" alt="Gazebo and hot tub at sunset" />
         </div>
         <div class="img-meta">
           <div class="img-tag">The pool deck after dark</div>
@@ -647,7 +714,7 @@ img { display:block; max-width:100%; }
     <div class="img-grid">
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-06.jpeg" alt="Raw bar — oysters on ice" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-06.jpeg" alt="Raw bar — oysters on ice" />
         </div>
         <div class="img-meta">
           <div class="img-tag">Raw bar</div>
@@ -669,7 +736,7 @@ img { display:block; max-width:100%; }
       </div>
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-11.jpeg" alt="Saffron Old Fashioned cocktail" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-11.jpeg" alt="Saffron Old Fashioned cocktail" />
         </div>
         <div class="img-meta">
           <div class="img-tag">The tiki bar</div>
@@ -680,7 +747,7 @@ img { display:block; max-width:100%; }
       </div>
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-14.jpeg" alt="Champagne flute at the bar" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-14.jpeg" alt="Champagne flute at the bar" />
         </div>
         <div class="img-meta">
           <div class="img-tag">Wine &amp; champagne</div>
@@ -739,7 +806,7 @@ img { display:block; max-width:100%; }
     <div class="spa-stack">
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-17.jpeg" alt="The Hammam — arched chamber" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-17.jpeg" alt="The Hammam — arched chamber" />
         </div>
         <div class="img-meta">
           <div class="img-tag">The Hammam</div>
@@ -750,7 +817,7 @@ img { display:block; max-width:100%; }
       </div>
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-19.jpeg" alt="Relaxation lounge with mint tea" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-19.jpeg" alt="Relaxation lounge with mint tea" />
         </div>
         <div class="img-meta">
           <div class="img-tag">Relaxation lounge</div>
@@ -761,7 +828,7 @@ img { display:block; max-width:100%; }
       </div>
       <div class="img-card">
         <div class="img-wrap">
-          <img src="/lake-shadroe/images/brochure-extracted/brochure-img-21.jpeg" alt="Longevity wellness suite" />
+          <img src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/brochure-extracted/brochure-img-21.jpeg" alt="Longevity wellness suite" />
         </div>
         <div class="img-meta">
           <div class="img-tag">The Longevity Suite</div>
@@ -825,7 +892,7 @@ img { display:block; max-width:100%; }
         <!-- LEFT — Rob Knight (LS-069) -->
         <div class="vpi-contact-card">
           <img class="vpi-contact-headshot"
-               src="/lake-shadroe/images/people/rob-knight-headshot.jpg"
+               src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/people/rob-knight-headshot.jpg"
                alt="Rob Knight, Founder &amp; Managing Principal, Vantage Point Investments" />
           <div>
             <div class="vpi-contact-name">Rob Knight</div>
@@ -841,7 +908,7 @@ img { display:block; max-width:100%; }
         <!-- RIGHT — Deborah Knight (LS-077) -->
         <div class="vpi-contact-card">
           <img class="vpi-contact-headshot"
-               src="/lake-shadroe/images/people/deborah-knight-headshot.jpg"
+               src="https://rk-dashboard-zeta.vercel.app/lake-shadroe/images/people/deborah-knight-headshot.jpg"
                alt="Deborah Knight, Co-Founder, Vantage Point Investments" />
           <div>
             <div class="vpi-contact-name">Deborah Knight</div>
